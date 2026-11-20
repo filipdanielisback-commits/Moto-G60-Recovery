@@ -1,8 +1,14 @@
 # Compatibility policy
 
-## Supported target
+## Initial target
 
-The initial target is the Motorola Moto G60, but exact variant and boot architecture are not yet verified in this repository.
+The initial target is the Motorola Moto G60 **XT2135-2**, regional channel **RETEU**, firmware build **S2RIS32.32-20-9-9-2-3**, codename **hanoip** (Android 12).
+
+Research has identified an existing TeamWin TWRP device listing and device tree for the combined Moto G60/G40 Fusion hanoip family. This project should audit and adapt that upstream work rather than assume a new device tree is needed. The upstream tree inspected is on the `android-11` branch, so compatibility with the target Android 12 firmware is not yet established.
+
+The device uses dynamic partitions. Treat the exact super/logical partition behavior and recovery image target as device-specific facts to verify from upstream sources and matching firmware—not as values to guess.
+
+See [the device profile](device-profile.md) for source links and outstanding questions.
 
 ## No universal image
 
