@@ -1,28 +1,30 @@
 # Moto G60 device configuration
 
-**Status: unverified placeholder. Do not use this directory to build or flash an image yet.**
+**Target identified:** Motorola Moto G60 XT2135-2, RETEU, Android 12 build S2RIS32.32-20-9-9-2-3, codename `hanoip`.
 
-This directory is reserved for the Moto G60-specific TWRP device tree after the exact device variant and boot architecture have been established.
+**Status: research-backed profile; project device tree not yet implemented or validated. Do not use this directory to build or flash an image yet.**
 
-## Required evidence
+## Upstream starting points
 
-Record the following before adding build variables:
+- TeamWin device listing: [Motorola G60/G40 Fusion](https://test.twrp.me/motorola/motorolamotog60g40fusion.html)
+- TeamWin device tree: [android_device_motorola_hanoip](https://github.com/TeamWin/android_device_motorola_hanoip) (inspected branch: `android-11`)
+- Matching Motorola kernel source release: [MMI-S2RIS32.32-20-9-9-2-3](https://github.com/MotorolaMobilityLLC/kernel-msm/releases/tag/MMI-S2RIS32.32-20-9-9-2-3)
 
-- Exact model/region variant:
-- Device codename:
-- Android version/build fingerprint:
-- SoC/platform:
-- Kernel source or matching kernel artifact:
-- Boot architecture (A-only/A-B, slots, dynamic partitions):
-- Recovery location (recovery, boot, vendor_boot, or other):
-- Image header/version requirements:
-- Verified partition map source:
-- Recovery fstab source:
-- Encryption/decryption requirements:
-- Required vendor components:
+TeamWin identifies the device family as `hanoip` and states that it uses dynamic partitions. The existence of an upstream tree does not prove that its current branch or a published recovery image is compatible with this exact Android 12 firmware.
 
-Leave unknown fields blank. Do not infer values from a similarly named device or another Moto G60 variant.
+## Required audit before implementation
+
+- [ ] Compare the upstream tree's branch, commit history, BoardConfig, product makefiles, fstab, and recovery init files against the target firmware.
+- [ ] Verify the exact recovery image packaging/boot target for XT2135-2.
+- [ ] Review the matching kernel source release and required configuration.
+- [ ] Verify partition metadata and dynamic-partition behavior from trusted matching sources.
+- [ ] Verify encryption/decryption requirements and required vendor components.
+- [ ] Verify display, touch input, storage, and ADB support.
+- [ ] Record source revisions and checksums for all imported components.
+- [ ] Review all upstream licenses and preserve required notices.
+
+Do not copy guessed BoardConfig values, partition sizes, fstab entries, or image targets into this repository. Leave unknown values explicitly unresolved.
 
 ## Expected future tree
 
-The exact filenames depend on the selected TWRP branch. Typical components may include product makefiles, BoardConfig, AndroidProducts, recovery init files, fstab, and device-specific resources. Add only files whose values have been verified.
+The exact filenames depend on the selected TWRP branch. Typical components may include product makefiles, BoardConfig, AndroidProducts, recovery init files, fstab, and device-specific resources. Adapt upstream files only after reviewing their compatibility and licensing.
